@@ -48,7 +48,7 @@ class OurTest(unittest.TestCase):
         类似于类的init方法，在测试执行之初制动执行，通常用来做测试数据的准备
         """
         self.a = 1 #测试使用的参数1
-        self.b = 1 #测试使用的参数2
+        self.b = 2 #测试使用的参数2
         self.result = 3 #预期的结果
     def test_add(self):
         """
