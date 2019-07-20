@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block styles %}
+    input{
+             width: 300px;
+             height: 50px;
+         }
+{% endblock %}
+{% block content %}
+  <form action="" method="post">
+  {% csrf_token %}
+    <p>
+        <span>用户:</span>
+        <input type="text" name="username" id="id_username">
+        <span id="mod" style="color: red"></span>
+    </p>
+    <p>
+        <span>密码:</span>
+        <input type="password" name="password" id="id_password">
+    </p>
+    <p>
+        <input  type="submit" value="提交">
+    </p>
+    <span style="color:red;font-size: 50px">{{ result.content }}</span>
+    </form>
+{% endblock %}
+{% block style %}
+{#    <script>#}
+           $('#id_username').blur(
+               function () {
+                   var value = $('#id_username').val();//获取对话框里的值
+                   var url = '/ajax_register/?username='+value;//将数据传给后端验证
+                   $.ajax(
+                       {
+                            url:url,
+                            type:'get',
+                            data:'',
+                            success:function (data) {
+                                console.log(data.content);
+                                $('#mod').text(data.content);
+                            },
+                            error:function (error) {
+                                console.log(error)
+                            }
+                       }
+                   )
+               }
+           )
+    {#</script>#}
+
+{% endblock %}

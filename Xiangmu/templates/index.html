@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p style="color: red;font-size:100px;text-align: center">index</p>
+{#    <P>欢迎：{{ user.username }}</P>#}
+    <marquee style="color: blue;font-size: 50px">欢迎：{{ user.username }}</marquee>
+    <a href="/out_login/">退出</a>
+{% endblock %}
